@@ -6,4 +6,5 @@ export default defineConfig({
   server: {
     port: 9090,
   },
+  base: process.env.VITE_BASE_PATH || "/foodzone"
 })
