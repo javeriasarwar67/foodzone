@@ -1,0 +1,246 @@
+/* Outer page background */
+.hero-page{
+    width:100%;
+    min-height:100vh;
+    background:#e9edec;
+    padding-top:120px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:40px;
+    display:flex;
+    justify-content:center;
+}
+
+/* The rounded white card holding navbar + hero content */
+.hero-card{
+    width:100%;
+    max-width:1300px;
+    background:var(--white);
+    border-radius:40px;
+    box-shadow:0 30px 60px rgba(0,0,0,.08);
+    overflow:hidden;
+    position:relative;
+}
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    padding:20px 60px 60px;
+    min-height:640px;
+}
+
+/* ---------------- Left: content ---------------- */
+
+.hero-content{
+    flex:1;
+    max-width:420px;
+}
+
+.hero-content h1{
+    font-size:52px;
+    font-weight:800;
+    line-height:1.1;
+    color:var(--dark);
+    margin-bottom:14px;
+}
+
+.hero-price{
+    font-size:28px;
+    font-weight:700;
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+.hero-desc{
+    color:var(--text-light);
+    font-size:14px;
+    line-height:1.8;
+    max-width:320px;
+    margin-bottom:30px;
+    min-height:76px;
+}
+
+.hero-actions{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:26px;
+}
+
+.qty-selector{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:#f4fbf1;
+    border:1px solid #cdeecb;
+    padding:12px 22px;
+    border-radius:50px;
+}
+
+.qty-selector button{
+    background:none;
+    color:#9a9a9a;
+    font-size:16px;
+    font-weight:700;
+    line-height:1;
+    width:12px;
+}
+
+.qty-selector span{
+    font-weight:600;
+    font-size:14px;
+    color:var(--heading-alt);
+    min-width:18px;
+    text-align:center;
+}
+
+.order-btn{
+    background:var(--secondary);
+    color:var(--dark);
+    font-weight:600;
+    font-size:14px;
+    padding:15px 34px;
+    border-radius:50px;
+    box-shadow:0 12px 24px rgba(164,233,74,.45);
+    transition:.3s;
+}
+
+.order-btn:hover{
+    background:#8fd633;
+    transform:translateY(-2px);
+}
+
+.hero-nav-links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+    margin-bottom:60px;
+}
+
+/* Previous / Next are real <button>s now (so they can drive the
+   rotation) but keep the original link-like look */
+.nav-link-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    padding:0;
+    font-size:12px;
+    font-weight:600;
+    color:var(--text-light);
+    cursor:pointer;
+    transition:.3s;
+    font-family:inherit;
+}
+
+.nav-link-btn:hover{
+    color:var(--dark);
+}
+
+.arrow{
+    font-size:14px;
+}
+
+.stay-tag{
+    font-size:11px;
+    font-weight:700;
+    color:var(--heading-alt);
+    line-height:1.8;
+    letter-spacing:.3px;
+}
+
+.stay-tag p:last-child{
+    text-align:right;
+    padding-right:24px;
+}
+
+/* ---------------- Right: image cluster ---------------- */
+
+.hero-image{
+    position:relative;
+    width:620px;
+    height:560px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-blob{
+    position:absolute;
+    right:-90px;
+    top:50%;
+    transform:translateY(-50%);
+    width:520px;
+    height:520px;
+    background:#eef3f1;
+    border-radius:50%;
+}
+
+.dashed-path{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width:1100px){
+    .hero-container{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding:20px 30px 50px;
+    }
+
+    .hero-content{
+        max-width:100%;
+    }
+
+    .hero-desc{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-actions,
+    .hero-nav-links{
+        justify-content:center;
+    }
+
+    .stay-tag p:last-child{
+        text-align:center;
+        padding-right:0;
+    }
+
+    .hero-image{
+        width:100%;
+        height:420px;
+    }
+
+    .hero-blob{
+        right:50%;
+        transform:translate(50%,-50%);
+        width:400px;
+        height:400px;
+    }
+}
+
+@media (max-width:640px){
+    .hero-image{
+        height:320px;
+    }
+}
+
+@media (max-width:560px){
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .hero-price{
+        font-size:22px;
+    }
+}

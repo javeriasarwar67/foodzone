@@ -1,0 +1,461 @@
+/* ==========================================
+   FOODIE PREMIUM NAVBAR
+   (color variables now live in src/index.css)
+========================================== */
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 1000;
+
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(16px);
+}
+
+.navbar.scrolled{
+  background:var(--white);
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.nav-container{
+  width:min(1350px,92%);
+  height:100%;
+  margin:auto;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  cursor:pointer;
+}
+
+.logo-dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--primary);
+  box-shadow:0 0 20px var(--primary-light);
+}
+
+.logo h2{
+  font-size:32px;
+  font-weight:700;
+  color:var(--dark);
+  letter-spacing:.5px;
+  transition:.35s;
+}
+
+.logo:hover h2{
+  color:var(--primary);
+}
+
+/* ===========================
+   NAV LINKS
+=========================== */
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:46px;
+}
+
+.nav-links a{
+  position:relative;
+  text-decoration:none;
+  color:var(--text);
+  font-size:16px;
+  font-weight:500;
+  padding-bottom:10px;
+  transition:.35s;
+}
+
+.nav-links a:hover{
+  color:var(--dark);
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:0;
+  height:3px;
+  border-radius:30px;
+  background:var(--primary);
+  transition:.35s;
+}
+
+.nav-links a:hover::after{
+  width:26px;
+}
+
+.active-link{
+  color:var(--dark)!important;
+  font-weight:600;
+}
+
+.active-link::after{
+  width:30px!important;
+}
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* ===========================
+   ICON BUTTON
+=========================== */
+
+.icon-btn{
+  width:46px;
+  height:46px;
+  border:none;
+  outline:none;
+  border-radius:50%;
+  background:var(--white);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:20px;
+  color:var(--heading-alt);
+
+  cursor:pointer;
+
+  transition:.35s;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+.icon-btn:hover{
+  background:var(--primary);
+  color:var(--white);
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px var(--primary-shadow);
+}
+
+.icon-btn-active{
+  background:var(--primary);
+  color:var(--white);
+}
+
+/* ===========================
+   SEARCH PANEL
+=========================== */
+
+.search-panel{
+  max-height:0;
+  overflow:hidden;
+
+  background:var(--white);
+  border-top:1px solid rgba(0,0,0,.06);
+
+  transition:max-height .35s cubic-bezier(.23,1,.32,1);
+}
+
+.search-panel.open{
+  max-height:90px;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.search-panel-inner{
+  width:min(1350px,92%);
+  margin:auto;
+  height:90px;
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.search-panel-icon{
+  font-size:20px;
+  color:var(--primary);
+}
+
+.search-panel-inner input{
+  flex:1;
+  border:none;
+  outline:none;
+  background:transparent;
+
+  font-family:inherit;
+  font-size:16px;
+  color:var(--dark);
+}
+
+.search-panel-close{
+  width:38px;
+  height:38px;
+  border:none;
+  outline:none;
+  border-radius:50%;
+  background:var(--bg-light);
+  color:var(--text-dark);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:16px;
+
+  cursor:pointer;
+  transition:.25s;
+}
+
+.search-panel-close:hover{
+  background:var(--primary);
+  color:var(--white);
+}
+
+@media(max-width:500px){
+  .search-panel-inner{
+    height:70px;
+  }
+
+  .search-panel.open{
+    max-height:70px;
+  }
+}
+
+/* ===========================
+   CART BUTTON
+=========================== */
+
+.cart-btn{
+  position:relative;
+
+  width:50px;
+  height:50px;
+
+  border:none;
+  outline:none;
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:var(--primary);
+  color:var(--white);
+  font-size:21px;
+
+  cursor:pointer;
+
+  transition:.35s;
+
+  box-shadow:0 15px 35px var(--primary-glow);
+}
+
+.cart-btn:hover{
+  transform:translateY(-5px);
+}
+
+.cart-btn span{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+
+  width:20px;
+  height:20px;
+
+  border-radius:50%;
+
+  background:#1d1d1d;
+  color:var(--white);
+
+  font-size:11px;
+  font-weight:600;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border:2px solid var(--white);
+}
+
+/* ===========================
+   MOBILE MENU BUTTON
+=========================== */
+
+.menu-btn{
+  display:none;
+
+  width:46px;
+  height:46px;
+
+  border:none;
+  outline:none;
+
+  border-radius:12px;
+
+  background:var(--white);
+
+  font-size:24px;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.menu-btn:hover{
+  background:var(--primary);
+  color:var(--white);
+}
+
+/* ===========================
+   COMMON TRANSITION
+=========================== */
+
+.logo,
+.icon-btn,
+.cart-btn,
+.nav-links a{
+  transition:all .35s cubic-bezier(.23,1,.32,1);
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media(max-width:992px){
+
+.nav-links{
+
+position:absolute;
+
+top:90px;
+left:0;
+
+width:100%;
+
+padding:35px;
+
+background:var(--white);
+
+display:flex;
+flex-direction:column;
+
+gap:28px;
+
+opacity:0;
+visibility:hidden;
+
+transform:translateY(-20px);
+
+box-shadow:0 18px 35px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.nav-links.active{
+
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+
+}
+
+.menu-btn{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.icon-btn{
+display:none;
+}
+
+.logo h2{
+font-size:28px;
+}
+
+.nav-container{
+width:94%;
+}
+
+}
+
+/* ===========================
+   SMALL DEVICES
+=========================== */
+
+@media(max-width:500px){
+
+.navbar{
+height:80px;
+}
+
+.logo h2{
+font-size:24px;
+}
+
+.cart-btn{
+
+width:45px;
+height:45px;
+
+font-size:18px;
+
+}
+
+.nav-links{
+
+top:80px;
+
+}
+
+}
+
+/* ===========================
+   NAVBAR ANIMATION
+=========================== */
+
+@keyframes navbarFade{
+
+from{
+opacity:0;
+transform:translateY(-25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
